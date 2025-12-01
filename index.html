@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador de Series | TV Info</title>
+
+    <link rel="icon" type="image/png" href="IMAGENES/logo.png" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="CSS/bootstrap.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">🎬 TV Info</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="series.html">Series Populares</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="adivina.html">Adivina</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- TÍTULO + BUSCADOR -->
+    <div class="container text-center my-5">
+        <h1 class="mb-3 text-danger fw-bold">⭐ Buscador de Series</h1>
+
+        <p class="text-light mb-4">
+            Buscá tu serie favorita y descubrí su información
+        </p>
+
+        <div class="position-relative w-75 mx-auto">
+            <div class="input-group mb-4">
+                <input id="searchInput" type="text" class="form-control" placeholder="Ejemplo: Breaking Bad..." />
+                <button id="searchBtn" class="btn btn-danger">Buscar</button>
+            </div>
+
+            <ul id="suggestions" class="list-group position-absolute w-100" style="z-index: 1000"></ul>
+        </div>
+    </div>
+
+    <!-- RESULTADOS -->
+    <div class="container">
+        <div id="results" class="row g-4 justify-content-center"></div>
+    </div>
+
+    <!-- MODAL INFO -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-danger" id="modalTitle"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Hecho por Brian Cáceres © 2025 | Proyecto APIs Públicas</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+</body>
+
+</html>
