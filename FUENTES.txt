@@ -1,0 +1,17 @@
+Fuentes y Recursos Utilizados
+
+Este trabajo fue realizado principalmente por el autor. La única herramienta externa utilizada fue:
+
+ChatGPT (OpenAI)
+
+Tipo de recurso: Asistencia de inteligencia artificial para redacción, explicación y generación de ideas.
+
+Modelo utilizado: ChatGPT (GPT-5.1).
+
+Licencia: Contenido generado bajo los términos de uso de OpenAI.
+
+URL: https://chat.openai.com
+
+Aporte al trabajo: Proporcionó respuestas, aclaraciones y ejemplos solicitados durante el desarrollo del proyecto.
+
+No se utilizaron otros textos, autores, artículos, libros ni recursos con copyright.
