@@ -14,22 +14,24 @@ async function cargarRecientes() {
         const data = await res.json();
 
         // Se filtran las series que tienen imagen,
-        // se mezclan de forma aleatoria
-        // y se seleccionan solo 3
+        // se mezclan de forma aleatoria y se seleccionan solo 3
         const recientes = data
-            .filter(s => s.image)
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 3);
+            .filter(s => s.image)        // Solo series con imagen
+            .sort(() => Math.random() - 0.5) // Mezclar aleatoriamente
+            .slice(0, 3);                // Tomar solo 3
 
         // Se muestran las series seleccionadas en pantalla
         mostrarRecientes(recientes);
 
     } catch (error) {
         // Si ocurre un error al cargar los datos, se muestra un mensaje
-        contenedor.innerHTML = `
-            <p class="text-center text-danger">
-                Error al cargar las series.
-            </p>`;
+        contenedor.replaceChildren(); // Limpiar contenedor
+
+        const p = document.createElement("p"); // Crear párrafo de error
+        p.textContent = "Error al cargar las series."; // Texto del mensaje
+        p.className = "text-center text-danger"; // Clases de Bootstrap
+
+        contenedor.appendChild(p); // Agregar mensaje al contenedor
     }
 }
 
@@ -38,29 +40,52 @@ function mostrarRecientes(series) {
     const contenedor = document.getElementById("estrenosContainer");
 
     // Se limpia el contenido anterior
-    contenedor.innerHTML = "";
+    contenedor.replaceChildren();
 
     // Se recorre cada serie del array
     series.forEach(s => {
-        // Se obtiene la imagen de la serie
-        const img = s.image.medium;
+        const img = s.image.medium; // Obtener imagen de la serie
 
-        // Se crea una columna para Bootstrap
+        // Crear columna para Bootstrap
         const col = document.createElement("div");
         col.className = "col-12 col-md-6 col-lg-4";
 
-        // Se arma la card con los datos de la serie
-        col.innerHTML = `
-            <div class="card bg-secondary text-light h-100 shadow">
-                <img src="${img}" class="card-img-top" alt="${s.name}">
-                <div class="card-body">
-                    <h5 class="card-title text-danger">${s.name}</h5>
-                    <p><strong>Idioma:</strong> ${s.language}</p>
-                </div>
-            </div>
-        `;
+        // Crear card
+        const card = document.createElement("div");
+        card.className = "card bg-secondary text-light h-100 shadow";
 
-        // Se agrega la card al contenedor principal
+        // Crear imagen de la card
+        const imgEl = document.createElement("img");
+        imgEl.src = img;
+        imgEl.alt = s.name;
+        imgEl.className = "card-img-top";
+
+        // Crear body de la card
+        const body = document.createElement("div");
+        body.className = "card-body";
+
+        // Título de la serie
+        const h5 = document.createElement("h5");
+        h5.textContent = s.name;
+        h5.className = "card-title text-danger";
+
+        // Idioma de la serie
+        const pIdioma = document.createElement("p");
+        const strong = document.createElement("strong");
+        strong.textContent = "Idioma: ";
+        pIdioma.appendChild(strong);
+        pIdioma.appendChild(document.createTextNode(s.language));
+
+        // Agregar título y idioma al body
+        body.append(h5, pIdioma);
+
+        // Armar la card completa
+        card.append(imgEl, body);
+
+        // Agregar la card a la columna
+        col.appendChild(card);
+
+        // Agregar columna al contenedor principal
         contenedor.appendChild(col);
     });
 }
