@@ -15,7 +15,7 @@ body {
   flex-direction: column;
 
   background: linear-gradient(var(--gradient-dark-1), var(--gradient-dark-2)),
-    url("../IMAGENES/Netflix.jpg") no-repeat center center fixed;
+    url("./IMAGENES/Netflix.jpg") no-repeat center center fixed;
   background-size: cover;
 
   color: var(--bs-body-color) !important;
@@ -68,3 +68,4 @@ a:hover,
   background-color: #b00710 !important;
 
 }
+
