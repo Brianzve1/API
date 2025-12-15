@@ -1,0 +1,36 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+        url("IMAGENES/Netflix.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.navbar {
+    background-color: #c62828 !important;
+}
+
+.card {
+    background-color: rgba(40, 40, 40, 0.85);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #aaa;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
